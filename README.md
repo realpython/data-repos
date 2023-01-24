@@ -1,4 +1,4 @@
-# data-repo
+# DataRepo
 
 This package provides a namespace intended for data files.
 

@@ -1,5 +1,7 @@
+# Standard library imports
 from importlib import resources
 
+# Third party imports
 import pandas as pd
 
 readers = {}
