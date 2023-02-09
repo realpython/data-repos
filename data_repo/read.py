@@ -1,3 +1,7 @@
+"""Collect and register reader functions to read any resources in data_repo
+namespace
+"""
+
 # Standard library imports
 from importlib import resources
 
@@ -14,7 +18,7 @@ def register(func):
 
 
 def data(name, package=__package__):
-    """Get data file."""
+    """Get a data file."""
     data_path = path(name, package)
     if data_path is None:
         raise FileNotFoundError(f"{name} not found in {package}")
@@ -34,11 +38,11 @@ def path(name, package=__package__):
 
 @register
 def csv(data_path):
-    """Read CSV file from a path."""
+    """Read a CSV file from a path."""
     return pd.read_csv(data_path)
 
 
 @register
 def json(data_path):
-    """Read JSON file from a path."""
+    """Read a JSON file from a path."""
     return pd.read_json(data_path)

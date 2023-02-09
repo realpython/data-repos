@@ -32,7 +32,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pandas"]
-dynamic = ["version", "description"]
+dynamic = ["version"]
 
 [project.urls]
 Homepage      = "https://realpython.com/namespace-package"
@@ -40,10 +40,70 @@ Homepage      = "https://realpython.com/namespace-package"
 Tutorial      = "https://realpython.com/namespace-package"
 
 [project.optional-dependencies]
-dev = ["black", "isort"]
+dev  = ["black", "bump2version", "ruff", "interrogate", "isort"]
+test = ["black", "ruff", "interrogate", "pytest", "pytest-cov", "tox"]
 
 [tool.isort]
 profile                   = "black"
 import_heading_stdlib     = "Standard library imports"
 import_heading_thirdparty = "Third party imports"
 import_heading_firstparty = "DataRepo imports"
+
+[tool.interrogate]
+fail-under = 100
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+    isolated_build = true
+    envlist = py, style
+
+
+    [testenv]
+    deps =
+        pytest
+        pytest-cov
+    commands =
+        {envpython} -m pytest --cov=data_repo --cov-fail-under=100 --cov-report=term-missing
+
+
+    [testenv:style]
+    skip_install = true
+    deps = 
+        black
+        ruff
+        interrogate
+        pytest
+        isort
+    commands = 
+        {envpython} -m black --check --quiet data_repo/ tests/
+        {envpython} -m ruff check data_repo/ tests/
+        {envpython} -m interrogate --quiet --config=pyproject.toml
+        {envpython} -m isort --check data_repo/ tests/
+"""
+
+[tool.ruff]
+# Same as Black.
+line-length = 88
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]

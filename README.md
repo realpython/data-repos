@@ -2,7 +2,7 @@
 
 This package provides a namespace intended for data files.
 
-It let's you have a common package to read data files, but with the ability to distribute the namespace over multiple packages.
+DataRepo let's you have a common package to read data files, but with the ability to distribute the namespace over multiple packages.
 
 For example, if you have various data files which are very large (in the order of hundreds of megabytes or larger), you can divide the data files into different packages, but that will be callable from the same namespace in your Python code.
 
