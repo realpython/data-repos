@@ -36,11 +36,11 @@ def path(name, package=__package__):
 
 
 def _files_iterdir(package):
-    """Use resources.files on Python 3.9 and above to yield resources.
+    """Use resources.files on Python 3.10 and above to yield resources.
     On previous versions, iterate over the __path__ attribute of the namespace"""
     try:
         yield from resources.files(package).iterdir()
-    except (AttributeError, TypeError):
+    except (AttributeError, TypeError):  # pragma: no cover
         for path in importlib.import_module(package).__path__:
             yield from pathlib.Path(path).iterdir()
 
