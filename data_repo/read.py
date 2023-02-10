@@ -20,9 +20,6 @@ def register(func):
 def data(name, package=__package__):
     """Get a data file."""
     data_path = path(name, package)
-    if data_path is None:
-        raise FileNotFoundError(f"{name} not found in {package}")
-
     file_type = data_path.suffix.lstrip(".")
     return readers[file_type](data_path)
 
