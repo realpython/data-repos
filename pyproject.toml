@@ -51,6 +51,7 @@ import_heading_firstparty = "DataRepo imports"
 
 [tool.interrogate]
 fail-under = 100
+exclude = ["setup.py", "docs", "build"]
 
 [tool.tox]
 legacy_tox_ini = """
