@@ -3,6 +3,8 @@ namespace
 """
 
 # Standard library imports
+import importlib
+import pathlib
 from importlib import resources
 
 # Third party imports
@@ -26,11 +28,21 @@ def data(name, package=__package__):
 
 def path(name, package=__package__):
     """Find the path to a data file."""
-    for resource in resources.files(package).iterdir():
+    for resource in _files_iterdir(package):
         if resource.stem == name:
             return resource
 
     raise FileNotFoundError(f"{name} not found in {package}")
+
+
+def _files_iterdir(package):
+    """Use resources.files on Python 3.9 and above to yield resources.
+    On previous versions, iterate over the __path__ attribute of the namespace"""
+    try:
+        yield from resources.files(package).iterdir()
+    except (AttributeError, TypeError):
+        for path in importlib.import_module(package).__path__:
+            yield from pathlib.Path(path).iterdir()
 
 
 @register
