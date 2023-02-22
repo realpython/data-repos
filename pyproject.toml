@@ -32,7 +32,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pandas"]
-dynamic = ["version"]
+version = "0.1.0"
 
 [project.urls]
 Homepage      = "https://realpython.com/namespace-package"
