@@ -7,6 +7,7 @@ where = ["."]
 
 [project]
 name = "data-repo"
+version = "0.1.0"
 authors = [
     { name = "Ian Currie", email = "iansedano@gmail.com" },
     { name = "Geir Arne Hjelle", email = "geirarne@gmail.com" },
@@ -32,7 +33,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pandas"]
-version = "0.1.0"
 
 [project.urls]
 Homepage      = "https://realpython.com/namespace-package"
@@ -51,7 +51,7 @@ import_heading_firstparty = "DataRepo imports"
 
 [tool.interrogate]
 fail-under = 100
-exclude = ["setup.py", "docs", "build"]
+exclude = ["dist"]
 
 [tool.tox]
 legacy_tox_ini = """
@@ -74,7 +74,6 @@ legacy_tox_ini = """
         black
         ruff
         interrogate
-        pytest
         isort
     commands = 
         {envpython} -m black --check --quiet data_repo/ tests/
@@ -88,23 +87,9 @@ legacy_tox_ini = """
 line-length = 88
 
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
     ".git",
-    ".hg",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
     ".ruff_cache",
-    ".svn",
     ".tox",
-    ".venv",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
     "venv",
+    "dist"
 ]
