@@ -15,6 +15,7 @@ authors = [
     { name = "Geir Arne Hjelle", email = "geirarne@gmail.com" },
 ]
 readme = "README.md"
+description = "A namespace package for data files"
 requires-python = ">=3.7"
 keywords = ["namespace", "data"]
 license = { text = "MIT" }
