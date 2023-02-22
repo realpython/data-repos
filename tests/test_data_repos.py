@@ -4,7 +4,7 @@
 # Third party imports
 import pytest
 
-# DataRepo imports
+# DataRepos imports
 from data_repos import read
 
 
