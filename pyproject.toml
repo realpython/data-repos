@@ -3,16 +3,16 @@ requires      = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where   = ["."]
 include = ["data_repos"]
 
 [project]
 name = "data-repos"
 version = "0.1.0"
 authors = [
+    { name = "Real Python", email = "info@realpython.com" },
     { name = "Ian Currie", email = "iansedano@gmail.com" },
     { name = "Geir Arne Hjelle", email = "geirarne@gmail.com" },
-    { name = "Real Python", email = "info@realpython.com" },
 ]
 readme = "README.md"
 requires-python = ">=3.7"
@@ -36,9 +36,9 @@ classifiers = [
 dependencies = ["pandas"]
 
 [project.urls]
-Homepage      = "https://realpython.com/namespace-package"
-"Source Code" = "https://github.com/realpython/data-repo"
-Tutorial      = "https://realpython.com/namespace-package"
+Homepage      = "https://realpython.com/python-namespace-package/"
+"Source Code" = "https://github.com/realpython/data-repos/"
+Tutorial      = "https://realpython.com/python-namespace-package/"
 
 [project.optional-dependencies]
 dev  = ["black", "bump2version", "ruff", "interrogate", "isort"]
@@ -52,7 +52,7 @@ import_heading_firstparty = "DataRepos imports"
 
 [tool.interrogate]
 fail-under = 100
-exclude = ["dist"]
+exclude    = ["dist"]
 
 [tool.tox]
 legacy_tox_ini = """
@@ -84,13 +84,5 @@ legacy_tox_ini = """
 """
 
 [tool.ruff]
-# Same as Black.
-line-length = 88
-
-exclude = [
-    ".git",
-    ".ruff_cache",
-    ".tox",
-    "venv",
-    "dist"
-]
+line-length = 88                                              # Same as Black
+exclude     = [".git", ".ruff_cache", ".tox", "venv", "dist"]
