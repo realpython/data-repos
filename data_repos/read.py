@@ -1,4 +1,4 @@
-"""Collect and register reader functions to read any resources in data_repo
+"""Collect and register reader functions to read any resources in data_repos
 namespace
 """
 

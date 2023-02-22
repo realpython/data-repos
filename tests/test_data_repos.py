@@ -1,11 +1,11 @@
-"""Tests for data_repo.read
+"""Tests for data_repos.read
 """
 
 # Third party imports
 import pytest
 
 # DataRepo imports
-from data_repo import read
+from data_repos import read
 
 
 def test_read_sample_countries_csv_data():

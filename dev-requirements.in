@@ -7,3 +7,5 @@ pytest
 pytest-cov
 tox
 isort
+twine
+build

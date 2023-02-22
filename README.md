@@ -9,13 +9,13 @@ For example, if you have various data files which are very large (in the order o
 That means you could install the data packages you need from PyPI:
 
 ```shell
-$ python -m pip install data-repo-cars data-repo-countries
+$ python -m pip install data-repos-cars data-repos-countries
 ```
 
-Once installed, you can just import `read` from `data_repo` and all your data sets will be available, if there's a reader registed for the datatype:
+Once installed, you can just import `read` from `data_repos` and all your data sets will be available, if there's a reader registed for the datatype:
 
 ```python
->>> from data_repo import read
+>>> from data_repos import read
 >>> read.data("cars")
 ...
 >>> read.data("countries")

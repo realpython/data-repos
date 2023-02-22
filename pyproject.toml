@@ -4,9 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["data_repos"]
 
 [project]
-name = "data-repo"
+name = "data-repos"
 version = "0.1.0"
 authors = [
     { name = "Ian Currie", email = "iansedano@gmail.com" },
@@ -47,7 +48,7 @@ test = ["black", "ruff", "interrogate", "pytest", "pytest-cov", "tox"]
 profile                   = "black"
 import_heading_stdlib     = "Standard library imports"
 import_heading_thirdparty = "Third party imports"
-import_heading_firstparty = "DataRepo imports"
+import_heading_firstparty = "DataRepos imports"
 
 [tool.interrogate]
 fail-under = 100
@@ -65,7 +66,7 @@ legacy_tox_ini = """
         pytest
         pytest-cov
     commands =
-        {envpython} -m pytest --cov=data_repo --cov-fail-under=100 --cov-report=term-missing
+        {envpython} -m pytest --cov=data_repos --cov-fail-under=100 --cov-report=term-missing
 
 
     [testenv:style]
@@ -76,10 +77,10 @@ legacy_tox_ini = """
         interrogate
         isort
     commands = 
-        {envpython} -m black --check --quiet data_repo/ tests/
-        {envpython} -m ruff check data_repo/ tests/
+        {envpython} -m black --check --quiet data_repos/ tests/
+        {envpython} -m ruff check data_repos/ tests/
         {envpython} -m interrogate --quiet --config=pyproject.toml
-        {envpython} -m isort --check data_repo/ tests/
+        {envpython} -m isort --check data_repos/ tests/
 """
 
 [tool.ruff]
