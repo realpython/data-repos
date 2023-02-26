@@ -1,0 +1,32 @@
+[
+  {
+    "price": 23590,
+    "year": "2019",
+    "make": "nissan",
+    "model": "maxima s sedan 4d"
+  },
+  {
+    "price": 30590,
+    "year": "2020",
+    "make": "volvo",
+    "model": "s60 t5 momentum sedan 4d"
+  },
+  {
+    "price": 34990,
+    "year": "2020",
+    "make": "cadillac",
+    "model": "xt4 sport suv 4d"
+  },
+  {
+    "price": 28990,
+    "year": "2018",
+    "make": "lexus",
+    "model": "es 350 sedan 4d"
+  },
+  {
+    "price": 30590,
+    "year": "2019",
+    "make": "bmw",
+    "model": "4 series 430i gran coupe"
+  }
+]

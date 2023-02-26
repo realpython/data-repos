@@ -1,4 +1,4 @@
-# DataRepo
+# DataRepos
 
 This package provides a namespace intended for data files.
 
@@ -9,13 +9,13 @@ For example, if you have various data files that are very large (on the order of
 That means you could install the data packages that you need from PyPI:
 
 ```shell
-$ python -m pip install data-repo-cars data-repo-countries
+$ python -m pip install data-repos-cars data-repos-countries
 ```
 
 Once they're installed, you can just import `read` from `data_repo`, and all your datasets will be available if there's a reader registed for the data type:
 
 ```python
->>> from data_repo import read
+>>> from data_repos import read
 >>> read.data("cars")
 ...
 >>> read.data("countries")

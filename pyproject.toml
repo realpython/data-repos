@@ -3,16 +3,19 @@ requires      = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where   = ["."]
+include = ["data_repos"]
 
 [project]
-name = "data-repo"
+name = "data-repos"
+version = "0.1.0"
 authors = [
+    { name = "Real Python", email = "info@realpython.com" },
     { name = "Ian Currie", email = "iansedano@gmail.com" },
     { name = "Geir Arne Hjelle", email = "geirarne@gmail.com" },
-    { name = "Real Python", email = "info@realpython.com" },
 ]
 readme = "README.md"
+description = "A namespace package for data files"
 requires-python = ">=3.7"
 keywords = ["namespace", "data"]
 license = { text = "MIT" }
@@ -32,18 +35,55 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pandas"]
-dynamic = ["version", "description"]
 
 [project.urls]
-Homepage      = "https://realpython.com/namespace-package"
-"Source Code" = "https://github.com/realpython/data-repo"
-Tutorial      = "https://realpython.com/namespace-package"
+Homepage      = "https://realpython.com/python-namespace-package/"
+"Source Code" = "https://github.com/realpython/data-repos/"
+Tutorial      = "https://realpython.com/python-namespace-package/"
 
 [project.optional-dependencies]
-dev = ["black", "isort"]
+dev  = ["black", "bump2version", "ruff", "interrogate", "isort"]
+test = ["black", "ruff", "interrogate", "pytest", "pytest-cov", "tox"]
 
 [tool.isort]
 profile                   = "black"
 import_heading_stdlib     = "Standard library imports"
 import_heading_thirdparty = "Third party imports"
-import_heading_firstparty = "DataRepo imports"
+import_heading_firstparty = "DataRepos imports"
+
+[tool.interrogate]
+fail-under = 100
+exclude    = ["dist"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+    isolated_build = true
+    envlist = py, style
+
+
+    [testenv]
+    deps =
+        pytest
+        pytest-cov
+    commands =
+        {envpython} -m pytest --cov=data_repos --cov-fail-under=100 --cov-report=term-missing
+
+
+    [testenv:style]
+    skip_install = true
+    deps = 
+        black
+        ruff
+        interrogate
+        isort
+    commands = 
+        {envpython} -m black --check --quiet data_repos/ tests/
+        {envpython} -m ruff check data_repos/ tests/
+        {envpython} -m interrogate --quiet --config=pyproject.toml
+        {envpython} -m isort --check data_repos/ tests/
+"""
+
+[tool.ruff]
+line-length = 88                                              # Same as Black
+exclude     = [".git", ".ruff_cache", ".tox", "venv", "dist"]
