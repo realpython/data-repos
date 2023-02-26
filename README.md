@@ -12,7 +12,7 @@ That means you could install the data packages that you need from PyPI:
 $ python -m pip install data-repos-cars data-repos-countries
 ```
 
-Once they're installed, you can just import `read` from `data_repo`, and all your datasets will be available if there's a reader registed for the data type:
+Once they're installed, you can just import `read` from `data_repos`, and all your datasets will be available if there's a reader registed for the data type:
 
 ```python
 >>> from data_repos import read
