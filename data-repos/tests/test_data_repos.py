@@ -8,17 +8,17 @@ import pytest
 from data_repos import read
 
 
-def test_read_sample_countries_csv_data():
-    """Test reading the sample country CSV file"""
+def test_read_sample_countries_json_data():
+    """Test reading the sample country JSON file"""
     assert not read.data("countries").empty
 
 
-def test_read_sample_cars_json_data():
-    """Test reading the sample cars JSON file"""
-    assert not read.data("cars").empty
+def test_read_sample_iris_csv_data():
+    """Test reading the sample iris CSV file"""
+    assert not read.data("iris").empty
 
 
 def test_raise_exception_no_dataset():
     """Test raising exception when called data file doesn't exist"""
     with pytest.raises(FileNotFoundError):
-        read.data("no_data")
+        read.data("no_such_data_file")

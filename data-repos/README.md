@@ -51,6 +51,15 @@ You can then read the cars dataset with the exact same syntax:
 
 Because DataRepos is a namespace package, it can be extended on the fly.
 
+## Available Data Files
+
+Two datasets are included as examples:
+
+- **`iris`**: The classical [Iris dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set), originally [published](https://doi.org/10.1111/j.1469-1809.1936.tb02137.x) by Ronald Fisher in 1936
+- **`countries`**: Countries and their population, collected by [Samayo](https://github.com/samayo/country-json)
+
+You can read these files with `read.data("iris")` and `read.data("countries")`, respectively.
+
 ## Add Your Own Data Files
 
 You can also add your own data files by storing them in a folder named `data_repos` that's on Python's path.
