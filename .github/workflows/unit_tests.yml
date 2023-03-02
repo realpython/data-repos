@@ -27,4 +27,4 @@ jobs:
     - run: pip install tox
     - name: Run app tox tests
       run: |
-        tox -e ${{ matrix.tox }}
+        tox -c data-repos -e ${{ matrix.tox }}
