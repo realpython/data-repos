@@ -1,11 +1,10 @@
-pandas
 black
-bump2version
-ruff
+build
 interrogate
+isort
+pandas
 pytest
 pytest-cov
+ruff
 tox
-isort
 twine
-build
