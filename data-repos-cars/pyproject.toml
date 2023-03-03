@@ -8,7 +8,7 @@ include = ["data_repos"]
 
 [project]
 name = "data-repos-cars"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
     { name = "Real Python", email = "info@realpython.com" },
     { name = "Ian Currie", email = "iansedano@gmail.com" },
